@@ -1,0 +1,29 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sms="http://provider.com/sms">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sms:ChargeSMS>
+         <sms:UserID>abc123</sms:UserID>
+         <sms:PhoneNumber>+46701234567</sms:PhoneNumber>
+         <sms:MessageID>msg001</sms:MessageID>
+         <sms:Timestamp>2025-04-01T12:30:00Z</sms:Timestamp>
+         <sms:ChargeAmount>0.05</sms:ChargeAmount>
+         <sms:Currency>EUR</sms:Currency>
+      </sms:ChargeSMS>
+      <sms:ChargeSMS>
+         <sms:UserID>abc123</sms:UserID>
+         <sms:PhoneNumber>+46701234568</sms:PhoneNumber>
+         <sms:MessageID>msg002</sms:MessageID>
+         <sms:Timestamp>2025-04-01T12:35:00Z</sms:Timestamp>
+         <sms:ChargeAmount>0.07</sms:ChargeAmount>
+         <sms:Currency>EUR</sms:Currency>
+      </sms:ChargeSMS>
+      <sms:ChargeSMS>
+         <sms:UserID>abc123</sms:UserID>
+         <sms:PhoneNumber>+46701234569</sms:PhoneNumber>
+         <sms:MessageID>msg003</sms:MessageID>
+         <sms:Timestamp>2025-04-01T12:40:00Z</sms:Timestamp>
+         <sms:ChargeAmount>0.10</sms:ChargeAmount>
+         <sms:Currency>EUR</sms:Currency>
+      </sms:ChargeSMS>
+   </soapenv:Body>
+</soapenv:Envelope>
