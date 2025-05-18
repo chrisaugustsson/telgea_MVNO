@@ -75,15 +75,10 @@ npm run lint
 ```
 
 
-## Adding a New Provider
+## Packages used
+The project uses neverthrow for error handling and zod for schema validation. Neverthrow makes sure that errors are handled consistently and zod provides a powerful schema validation library.
 
-To add a new MVNO provider:
-
-1. Create a new directory under `mvno_providers/`
-2. Copy the structure of an existing provider as a template
-3. Implement provider-specific converters for each feature
-4. Create a new normalizer for the provider
-5. Update the main exports in `index.ts`
+Eslint is used for linting and formatting. Eslint is configured to use the recommended rules from the eslint-plugin-js package. Eslint is also configured to use the recommended rules from the typescript-eslint package.
 
 ## Assumptions
 
