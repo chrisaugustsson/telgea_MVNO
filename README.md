@@ -12,11 +12,10 @@ A TypeScript module for integrating MVNO (Mobile Virtual Network Operator) provi
 │   │       ├── sms_charge/             # SMS charge converter feature
 │   │       ├── data_usage/             # Data usage converter feature
 │   │       └── normalizer/             # Merges features into final format
-│   ├── shared/                         # Shared utilities and types
-│   │   ├── types/                      # Shared type definitions
-│   │   ├── utils/                      # Utility functions
-│   │   └── errors/                     # Error handling classes
-│   └── monitoring/                     # Health checks and monitoring
+│   └── shared/                         # Shared utilities and types
+│       ├── types/                      # Shared type definitions
+│       ├── utils/                      # Utility functions
+│       └── errors/                     # Error handling classes
 └── README.md
 ```
 
@@ -32,7 +31,7 @@ Each provider has separate feature modules for different data types (SMS, data u
 
 ### Cross-Feature Logic
 
-The normalizer module is responsible for merging outputs from multiple features into a unified format. This approach:
+The interation module is responsible for merging outputs from multiple features into a unified format. This approach:
 
 - Keeps feature extraction separate from output orchestration
 - Facilitates testing each component independently
@@ -71,11 +70,10 @@ npm install
 # Run tests
 npm test
 
-# Build the project
-npm run build
+# Lint the project
+npm run lint
 ```
 
-The project uses TypeScript with relative imports (e.g., '../../../shared/types') for module resolution rather than path aliases.
 
 ## Adding a New Provider
 
@@ -87,10 +85,13 @@ To add a new MVNO provider:
 4. Create a new normalizer for the provider
 5. Update the main exports in `index.ts`
 
+## Assumptions
+
+It is assumed that there will be seperate API calls to for data usage and SMS charges. The integration module will handle the merging of these features into a unified format. 
+
+Each SMS charge contains user ID and phone number and it is assumed that these will safe to trust. Depending on how data fetching is performed there might be necessary to verify each SMS charge that they actually belong to the combination of user ID and phone number that is requested.
+
 ## Notes on Transport/Infra Concerns
 
 This module focuses purely on data transformation, not transport logic. Integration with HTTP clients, SOAP requests, or scheduling should be implemented in a separate layer.
-
-## Health Checks
-
-The `monitoring` directory contains health check implementations that can be used to verify the proper functioning of provider integrations.
+ioning of provider integrations.
