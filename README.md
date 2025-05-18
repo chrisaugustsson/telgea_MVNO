@@ -11,7 +11,7 @@ A TypeScript module for integrating MVNO (Mobile Virtual Network Operator) provi
 │   │   └── provider_abc/               # First provider implementation
 │   │       ├── sms_charge/             # SMS charge converter feature
 │   │       ├── data_usage/             # Data usage converter feature
-│   │       └── normalizer/             # Merges features into final format
+│   │       └── integration/            # Merges features into final format
 │   └── shared/                         # Shared utilities and types
 │       ├── types/                      # Shared type definitions
 │       ├── utils/                      # Utility functions
