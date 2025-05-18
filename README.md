@@ -86,7 +86,11 @@ It is assumed that there will be seperate API calls to for data usage and SMS ch
 
 Each SMS charge contains user ID and phone number and it is assumed that these will safe to trust. Depending on how data fetching is performed there might be necessary to verify each SMS charge that they actually belong to the combination of user ID and phone number that is requested.
 
-## Notes on Transport/Infra Concerns
+## Full integration
+A full integration would include adapters in both the sms_charge and the data_usage for data fetching from the provider. These adapters would handle authentication, error handling, and retries where necessary.
 
-This module focuses purely on data transformation, not transport logic. Integration with HTTP clients, SOAP requests, or scheduling should be implemented in a separate layer.
-ioning of provider integrations.
+The integration module is the coordinator, where the results from the provider are combined into a normalized internal data format. This module can then expose the result via an API route (e.g., with an Express router), or be triggered by a cron job if the data is meant to be pulled on a schedule.
+
+To support persistence, the integration should include a storage mechanism—this could be a simple database layer or repository class within the integration module (or in a shared storage/ directory). This layer would allow writing normalized data to a database for historical lookup, reporting, or downstream processing.
+
+The design allows flexibility: the integration can be consumed by internal systems via HTTP, event queues, or scheduled jobs, depending on Telgea's architecture.
